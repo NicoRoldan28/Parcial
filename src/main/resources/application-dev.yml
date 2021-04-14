@@ -1,0 +1,12 @@
+Spring:
+  Datasource:
+    url: jdbc:mysql://localhost:3306/parcial?serverTimezone=UTC
+    username: root
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      driverClassName: com.mysql.cj.jdbc.Drive
+    database: mysql
+
