@@ -9,4 +9,3 @@ Spring:
       dialect: org.hibernate.dialect.MySQL8Dialect
       driverClassName: com.mysql.cj.jdbc.Drive
     database: mysql
-

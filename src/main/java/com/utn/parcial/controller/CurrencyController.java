@@ -11,8 +11,11 @@ import java.util.List;
 @RequestMapping("/currency")
 public class CurrencyController {
 
-    @Autowired
     private CurrencyService currencyService;
+    @Autowired
+    public CurrencyController(CurrencyService currencyService){
+        this.currencyService=currencyService;
+    }
 
     @PostMapping("/")
     public void addCurrency(@RequestBody Currency currency){
@@ -23,7 +26,8 @@ public class CurrencyController {
     public List<Currency> getAll(){
         return currencyService.getAll();
     }
-    @GetMapping()
+
+    @GetMapping("/{id}")
     public Currency getById(@PathVariable Integer id) throws Throwable {
         return currencyService.getById(id);
     }

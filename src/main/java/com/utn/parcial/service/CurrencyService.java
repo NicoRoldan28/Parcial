@@ -22,6 +22,7 @@ public class CurrencyService {
     public void addCurrency(Currency currency){
         currencyRepository.save(currency);
     }
+
     public List<Currency> getAll(){
         return currencyRepository.findAll();
     }
@@ -31,7 +32,7 @@ public class CurrencyService {
                 .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
     public void delete(Integer id){
-        currencyRepository.delete(id);
+        currencyRepository.deleteById(id);
     }
 
 }
