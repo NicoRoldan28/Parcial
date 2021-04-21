@@ -27,9 +27,9 @@ public class CurrencyService {
         return currencyRepository.findAll();
     }
 
-    public Currency getById(Integer id) throws Throwable {
-        return (Currency) currencyRepository.findById(id)
-                .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
+    public Currency getById(Integer id){
+        return currencyRepository.findById(id)
+                .orElseThrow(()->new HttpClientErrorException(HttpStatus.NOT_FOUND));
     }
     public void delete(Integer id){
         currencyRepository.deleteById(id);

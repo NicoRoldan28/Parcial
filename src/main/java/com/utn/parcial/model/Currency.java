@@ -16,7 +16,6 @@ public class Currency {
     @Id
     @GeneratedValue(strategy  = GenerationType.IDENTITY)
     private Integer id;
-    //private String currency;
     @AccessType(AccessType.Type.PROPERTY)
     private TypeCurrency typeCurrency;
 

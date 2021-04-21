@@ -8,8 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.util.List;
-import java.util.*;
-import java.util.stream.*;
 
 @Data
 @NoArgsConstructor
@@ -21,17 +19,15 @@ public class Representante extends Persona {
     @JoinColumn(name = "jugador_id")
     private List<Jugador> jugadores;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "amigo_id")
+    private List<Amigo> amigos;
+
     private Integer pesoDeLaBobeda;
     private Integer montoTotal;
 
     @Override
     public TypePersona typePersona(){return TypePersona.REPRESENTANTE;}
-
-    /*public Integer getMontoTotal() {
-        return jugadores.stream()
-                .map(Jugador::getCurrency)
-                .reduce(0,Integer::sum);
-    }*/
 
     public Integer getMontoTotal(){
         Integer total = 0;
@@ -40,6 +36,7 @@ public class Representante extends Persona {
         }
         return total;
     }
+
 
     /*
         public void setTotalAmount(){

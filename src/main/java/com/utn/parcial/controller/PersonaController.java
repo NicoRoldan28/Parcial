@@ -30,23 +30,29 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    public Persona getById(@PathVariable Integer id) throws Throwable {
+    public Persona getById(@PathVariable Integer id) {
         return personaService.getById(id);
     }
     @PutMapping("/{id}/jugador/{idJugador}")
-    public void addJugadorToRepresentante(@PathVariable Integer id,@PathVariable Integer idJugador) throws Throwable{
+    public void addJugadorToRepresentante(@PathVariable Integer id,@PathVariable Integer idJugador){
         personaService.addJugadorToRepresentante(id, idJugador);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePerson(@PathVariable Integer id) throws Throwable {
+    public void deletePerson(@PathVariable Integer id) {
         personaService.deletePersona(id);
     }
 
     @PutMapping("/{id}/currency/{id_currency}")
-    public void addCurrencyToJugador(@PathVariable Integer id, @PathVariable Integer id_currency) throws Throwable {
+    public void addCurrencyToJugador(@PathVariable Integer id, @PathVariable Integer id_currency){
         personaService.addCurrencyToJugador(id,id_currency);
     }
+
+    @PutMapping("/{id}/currency/{id_currency}")
+    public void addAmigoToRepresentante(@PathVariable Integer representante_id, @PathVariable Integer amigo_id ){
+        personaService.addAmigoToRepresentante(representante_id,amigo_id);
+    }
+
 
 
 

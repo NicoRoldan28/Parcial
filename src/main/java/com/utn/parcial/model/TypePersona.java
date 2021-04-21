@@ -2,7 +2,8 @@ package com.utn.parcial.model;
 
 public enum TypePersona {
     JUGADOR("JUGADOR"),
-    REPRESENTANTE("REPRESENTANTE");
+    REPRESENTANTE("REPRESENTANTE"),
+    AMIGO("AMIGO");
 
     private String descripcion;
 
