@@ -3,14 +3,19 @@ package com.utn.parcial.model;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import javax.validation.constraints.NotNull;
+
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+
+import org.apache.tomcat.jni.User;
 import org.springframework.data.annotation.AccessType;
 
 import java.util.Set;
 
 @Data
+@Builder
 @NoArgsConstructor
 @Entity
 @JsonTypeInfo(use= JsonTypeInfo.Id.NAME, property = "typePersona", visible = true)

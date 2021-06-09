@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 public class Jugador extends Persona {
 
     private Integer peso;
-    private Integer altura;
+    private Double altura;
     private Integer goles;
     private Integer minutosJugados;
 

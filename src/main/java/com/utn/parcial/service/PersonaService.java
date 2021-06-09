@@ -4,6 +4,8 @@ import com.utn.parcial.model.*;
 import com.utn.parcial.service.CurrencyService;
 import com.utn.parcial.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -27,9 +29,14 @@ public class PersonaService {
         personaRepository.save(persona);
     }
 
-    public List<Persona>getPersona(){
+    /*public List<Persona>getPersona(){
         return personaRepository.findAll();
+    }*/
+
+    public Page getPersona(Pageable pageable){
+        return this.personaRepository.findAll(pageable);
     }
+
 
     public void addJugadorToPerson(Integer id, Integer persona_id){
         Persona persona = getById(id);

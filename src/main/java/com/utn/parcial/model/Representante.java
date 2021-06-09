@@ -23,14 +23,14 @@ public class Representante extends Persona {
     @JoinColumn(name = "amigo_id")
     private List<Amigo> amigos;
 
-    private Integer pesoDeLaBobeda;
-    private Integer montoTotal;
+    private Float pesoDeLaBobeda;
+    private Double montoTotal;
 
     @Override
     public TypePersona typePersona(){return TypePersona.REPRESENTANTE;}
 
-    public Integer getMontoTotal(){
-        Integer total = 0;
+    public Double getMontoTotal(){
+        double total = 0;
         for (Jugador j:jugadores) {
             total = total + (j.getCurrency().getMonto() * j.getCurrency().getTypeCurrency().getCotizacion());
         }

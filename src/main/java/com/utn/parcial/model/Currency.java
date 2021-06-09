@@ -19,6 +19,6 @@ public class Currency {
     @AccessType(AccessType.Type.PROPERTY)
     private TypeCurrency typeCurrency;
 
-    private Integer monto;
+    private Float monto;
 
 }

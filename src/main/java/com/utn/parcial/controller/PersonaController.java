@@ -3,6 +3,10 @@ package com.utn.parcial.controller;
 import com.utn.parcial.model.Persona;
 import com.utn.parcial.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +29,20 @@ public class PersonaController {
     }
 
     @GetMapping()
-    public List<Persona> getAll(){
-        return personaService.getPersona();
+    public ResponseEntity<List<Persona>> allUsers(Pageable pageable) {
+        Page page = personaService.getPersona(pageable);
+        return response(page);
+    }
+
+    private ResponseEntity response(Page page) {
+
+        HttpStatus httpStatus = page.getContent().isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK;
+        return ResponseEntity.
+                status(httpStatus).
+                header("X-Total-Count", Long.toString(page.getTotalElements()))
+                .header("X-Total-Pages", Long.toString(page.getTotalPages()))
+                .body(page.getContent());
+
     }
 
     @GetMapping("/{id}")

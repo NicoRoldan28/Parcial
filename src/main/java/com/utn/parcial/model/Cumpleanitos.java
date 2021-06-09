@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,8 +23,7 @@ public class Cumpleanitos {
     private Persona cumpleaniero;
 
     @ManyToMany(mappedBy ="cumpleanitos",cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private Set<Persona> invitados;
-
+    private List<Persona> invitados;
 
 }
 

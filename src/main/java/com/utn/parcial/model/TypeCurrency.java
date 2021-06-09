@@ -1,14 +1,17 @@
 package com.utn.parcial.model;
 
 public enum TypeCurrency {
-    DOLAR("DOLAR", 150),
-    EURO("EURO", 100);
 
+    //DOLAR("DOLAR", 100,36),
+    //EURO("EURO", 118,30);
+
+    DOLAR("DOLAR", 100.36),
+    EURO("EURO", 156.00);
 
     private String descripcion;
-    private Integer cotizacion;
+    private Double cotizacion;
 
-    TypeCurrency (String descripcion,Integer cotizacion){
+    TypeCurrency (String descripcion,Double cotizacion){
         this.descripcion=descripcion;
         this.cotizacion=cotizacion;
     }
@@ -23,7 +26,7 @@ public enum TypeCurrency {
     public String getDescripcion(){
         return this.descripcion;
     }
-    public Integer getCotizacion(){
+    public Double getCotizacion(){
         return this.cotizacion;
     }
 
