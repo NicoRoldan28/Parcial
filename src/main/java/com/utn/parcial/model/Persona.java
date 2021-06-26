@@ -15,7 +15,7 @@ import org.springframework.data.annotation.AccessType;
 import java.util.Set;
 
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @Entity
 @JsonTypeInfo(use= JsonTypeInfo.Id.NAME, property = "typePersona", visible = true)

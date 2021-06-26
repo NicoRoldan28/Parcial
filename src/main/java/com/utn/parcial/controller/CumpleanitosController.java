@@ -15,7 +15,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cumpleanitos")
+@RequestMapping("/api/cumpleanitos")
 
 public class CumpleanitosController {
 
@@ -26,7 +26,7 @@ public class CumpleanitosController {
         this.cumpleanitosService=cumpleanitosService;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity newCumpleanitos(@RequestBody Cumpleanitos cumpleanitos){
         Cumpleanitos newCumpleanitos = cumpleanitosService.addCumpleanitos(cumpleanitos);
         URI location = ServletUriComponentsBuilder
@@ -68,5 +68,4 @@ public class CumpleanitosController {
         Float result= cumpleanitosService.pagarFiesta(id);
         return result;
     }
-
 }

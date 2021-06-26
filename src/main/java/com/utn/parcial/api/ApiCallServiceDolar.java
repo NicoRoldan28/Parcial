@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 @Slf4j
 public class ApiCallServiceDolar {
     @CircuitBreaker(name = "Dolar", fallbackMethod = "fallback")
-    public EuroResponse getDolar() throws IOException, InterruptedException {
+    public DolarResponse getDolar() throws IOException, InterruptedException {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://www.dolarsi.com/api/api.php?type=dolar"))
@@ -27,12 +27,12 @@ public class ApiCallServiceDolar {
 
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-        return new Gson().fromJson(response.body(), EuroResponse.class);
+        return new Gson().fromJson(response.body(), DolarResponse.class);
     }
 
 
-    public EuroResponse fallback(final Throwable t) {
+    public DolarResponse fallback(final Throwable t) {
         log.info("Fallback cause, {}", t.toString());
-        return EuroResponse.builder().build();
+        return DolarResponse.builder().build();
     }
 }

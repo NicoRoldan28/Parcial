@@ -36,17 +36,4 @@ public class Representante extends Persona {
         }
         return total;
     }
-
-
-    /*
-        public void setTotalAmount(){
-        float acumulador = 0;
-        for (Jugador jug : jugadoresList){
-         acumulador +=  jug.getCurrency().getMonto() * jug.getCurrency().typeCurrency.getCotizacion();
-     }
-        this.montoTotal =  acumulador;
-        this.pesoBoveda=acumulador/1000;
-    }
-    */
-
 }

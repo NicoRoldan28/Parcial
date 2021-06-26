@@ -22,7 +22,7 @@ public class Cumpleanitos {
     @JoinColumn(name = "persona_id")
     private Persona cumpleaniero;
 
-    @ManyToMany(mappedBy ="cumpleanitos",cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy ="cumpleanitos",cascade = CascadeType.PERSIST)
     private List<Persona> invitados;
 
 }

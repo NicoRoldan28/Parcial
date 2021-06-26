@@ -55,7 +55,7 @@ public class TestUtils {
         r.setLastName("Coppola");
         r.setAmigos((List<Amigo>) aAmigoPage());
         r.setMontoTotal(330.0);
-        r.setPesoDeLaBobeda(500,50);
+        r.setPesoDeLaBobeda(350.5F);
         r.setJugadores((List<Jugador>) aJugadorPage());
         return  r;
     }

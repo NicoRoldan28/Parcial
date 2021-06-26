@@ -24,6 +24,8 @@ public class CumpleanitosService {
     ApiCallServiceDolar apiCallServiceDolar;
 
     private static final Integer precioCumpleanito= 25000;
+    private static final String dolar= "DOLAR";
+    private static final String euro= "EURO";
 
     @Autowired
     public CumpleanitosService(CumpleanitosRepository cumpleanitosRepository, PersonaService personaService, ApiCallServiceEuro apiCallServiceEuro,ApiCallServiceDolar apiCallServiceDolar ){
@@ -35,10 +37,6 @@ public class CumpleanitosService {
 
     public Cumpleanitos addCumpleanitos(Cumpleanitos cumpleanitos){
         return cumpleanitosRepository.save(cumpleanitos);
-    }
-
-    public List getAll(Pageable pageable){
-        return cumpleanitosRepository.findAll();
     }
 
     public Page allCumpleanitos(Pageable pageable) {
@@ -80,17 +78,15 @@ public class CumpleanitosService {
     }
 
     public Float Convertion(TypeCurrency typeCurrency) throws IOException, InterruptedException {
-
         Float result =null;
 
-        if(typeCurrency.getDescripcion().equals("EURO")){
+        if(typeCurrency.getDescripcion().equals(euro)){
             result = precioCumpleanito/ apiCallServiceEuro.getEuro().getVenta();
         }
-        else if (typeCurrency.getDescripcion().equals("DOLAR"))
+        else if (typeCurrency.getDescripcion().equals(dolar))
         {
             result = precioCumpleanito/ apiCallServiceDolar.getDolar().getVenta();
         }
-
         return result;
     }
 }
